@@ -40,6 +40,25 @@ public class DbHelper  extends SQLiteOpenHelper {
     public static final String KEY_OPTB= "opsb"; // opsioni b
     public static final String KEY_OPTC= "opsc"; // opsioni c
 
+
+
+    // emri tabeles per statistika
+
+    public static final String TABLE_STATISTIKA="Statistika";
+
+
+    // emrat e kolonave
+
+    public static final String KEY_IDS = "id";
+    public static final String GAMES_PLAYED = "games_played";
+    public static final String GAMES_WONE = "Fitoret";
+    public static final String GAMES_LOST="Humbjet";
+    public static final String GAMES_BESTTIME="Best_Time";
+    public static final String GAMES_HIGHSCORE="Piket_max";
+
+
+
+
     SQLiteDatabase dbase;
 
     public DbHelper(Context context) {
@@ -55,6 +74,15 @@ public class DbHelper  extends SQLiteOpenHelper {
                 +KEY_OPTB +" TEXT, " + KEY_OPTC + " TEXT)";
         try {
             db.execSQL(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String sql_user = "CREATE TABLE IF NOT EXISTS " + GAMES_LOGIN + " ( "
+                + GAMES_IDL+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + GAMES_USER
+                + " INTEGER, " +GAMES_PASS  + " INTEGER)";
+        try {
+            db.execSQL(sql_user);
         } catch (SQLException e) {
             e.printStackTrace();
         }
