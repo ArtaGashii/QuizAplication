@@ -87,11 +87,12 @@ public class DbHelper  extends SQLiteOpenHelper {
             e.printStackTrace();
         }
 
-        String sql_user = "CREATE TABLE IF NOT EXISTS " + GAMES_LOGIN + " ( "
-                + GAMES_IDL+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + GAMES_USER
-                + " INTEGER, " +GAMES_PASS  + " INTEGER)";
+        String sql_stats = "CREATE TABLE IF NOT EXISTS " + TABLE_STATISTIKA + " ( "
+                + KEY_IDS + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GAMES_PLAYED
+                + " INTEGER, " + GAMES_WONE + " INTEGER, "+ GAMES_LOST +" INTEGER, "
+                + GAMES_BESTTIME +" FLOAT, " + GAMES_HIGHSCORE + " FLOAT)";
         try {
-            db.execSQL(sql_user);
+            db.execSQL(sql_stats);
         } catch (SQLException e) {
             e.printStackTrace();
         }
