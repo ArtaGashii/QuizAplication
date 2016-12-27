@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+
 public class QuizApplication extends AppCompatActivity {
 
     @Override
@@ -21,7 +22,8 @@ public class QuizApplication extends AppCompatActivity {
         btnKyqu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intenti = new Intent(this, MainKuizActivity.class);
+
+                Intent intenti = new Intent(QuizApplication.this, MainKuizActivity.class);
                 startActivity(intenti);
             }
         });
